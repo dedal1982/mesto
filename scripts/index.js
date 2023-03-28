@@ -71,6 +71,8 @@ closeBox.addEventListener('click',() =>{
 
 addButton.addEventListener('click', () =>{
   openPopup(addBox);
+  addNameInput.value = '';
+  addLinkInput.value = '';
 })
 
 const itemTemplate = document.querySelector('.template').content;
@@ -105,14 +107,20 @@ function handleDelete(event){
  /***добавить карточку***/
  const ImgPopupForm = document.querySelector('.popup__form_img');
 
- function addCard(item){
+ function addCard(){
   const card = itemTemplate.cloneNode(true);
-
+  card.querySelector('.element__name').textContent = addNameInput.value;
+  card.querySelector('.element__img').src = addLinkInput.value;
+  card.querySelector('.element__img').alt = addNameInput.value;
+  card.querySelector('.element__button-trash').addEventListener('click',handleDelete);
   elements.prepend(card);
 }
+
+const addNameInput = document.querySelector('.popup__input_img_type_name');
+const addLinkInput = document.querySelector('.popup__input_type_link');
 
 ImgPopupForm.addEventListener('submit',(event)=>{
   event.preventDefault();
   addCard();
-  closePopup(popupBox);
+  closePopup(addBox);
  })
