@@ -1,3 +1,31 @@
+/***массив***/
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
 const buttonPopupOpen = document.querySelector('.profile__popup');
 const popupBox = document.querySelector('.popup');
 const buttonPopupClose = document.querySelector('.popup__close');
@@ -33,33 +61,6 @@ function openPopup(popup){
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 })
-/***массив***/
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 const addButton = document.querySelector('.profile__button-plus');
 const addBox = document.querySelector('.popup_img');
@@ -78,20 +79,14 @@ addButton.addEventListener('click', () =>{
 const itemTemplate = document.querySelector('.template').content;
 const elements = document.querySelector('.elements');
 
-
-
 initialCards.forEach(renderItem);
-
-
 
 function renderItem(item){
   const htmlElement = itemTemplate.cloneNode(true);
   htmlElement.querySelector('.element__img').src = item.link;
   htmlElement.querySelector('.element__img').alt = item.name;
   htmlElement.querySelector('.element__name').textContent = item.name;
-  htmlElement.querySelector('.element__button-trash').addEventListener('click',handleDelete);
-  htmlElement.querySelector('.element__button').addEventListener('click',handleLike);
-
+  setEventListeners(htmlElement);
   elements.prepend(htmlElement);
 }
 
@@ -112,7 +107,7 @@ function handleDelete(event){
   card.querySelector('.element__name').textContent = addNameInput.value;
   card.querySelector('.element__img').src = addLinkInput.value;
   card.querySelector('.element__img').alt = addNameInput.value;
-  card.querySelector('.element__button-trash').addEventListener('click',handleDelete);
+  setEventListeners(card);
   elements.prepend(card);
 }
 
@@ -123,4 +118,26 @@ ImgPopupForm.addEventListener('submit',(event)=>{
   event.preventDefault();
   addCard();
   closePopup(addBox);
+ })
+
+ /***popup-fullScreen***/
+const openFullScreen = document.querySelector('.popup-fullScreen');
+const closeFullScreen = document.querySelector('.popup-fullScreen__close');
+
+function setEventListeners(goto){
+  goto.querySelector('.element__button-trash').addEventListener('click', handleDelete);
+  goto.querySelector('.element__button').addEventListener('click',handleLike);
+  goto.querySelector('.element__img').addEventListener('click', upFullScreen);
+}
+
+function upFullScreen(event){
+  const foo = event.target.closest('.element__img');
+  openPopup(openFullScreen);
+  document.querySelector('.popup-fullScreen__img').src = foo.src;
+  document.querySelector('.popup-fullScreen__img').alt = foo.alt;
+  document.querySelector('.popup-fullScreen__caption').textContent = foo.alt;
+}
+
+closeFullScreen.addEventListener('click',() =>{
+  closePopup(openFullScreen);
  })
