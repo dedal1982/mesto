@@ -127,10 +127,10 @@ const closeFullScreen = document.querySelector('.popup-fullScreen__close');
 function setEventListeners(goto){
   goto.querySelector('.element__button-trash').addEventListener('click', handleDelete);
   goto.querySelector('.element__button').addEventListener('click',handleLike);
-  goto.querySelector('.element__img').addEventListener('click', upFullScreen);
+  goto.querySelector('.element__img').addEventListener('click', addFullScreenContent);
 }
 
-function upFullScreen(event){
+function addFullScreenContent(event){
   const foo = event.target.closest('.element__img');
   openPopup(openFullScreen);
   document.querySelector('.popup-fullScreen__img').src = foo.src;
