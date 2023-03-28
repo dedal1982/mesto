@@ -77,11 +77,27 @@ const itemTemplate = document.querySelector('.template').content;
 const elements = document.querySelector('.elements');
 
 
+
 initialCards.forEach(renderItem);
 
 
 
 function renderItem(item){
   const htmlElement = itemTemplate.cloneNode(true);
+  htmlElement.querySelector('.element__img').src = item.link;
+  htmlElement.querySelector('.element__img').alt = item.name;
+  htmlElement.querySelector('.element__name').textContent = item.name;
+  htmlElement.querySelector('.element__button-trash').addEventListener('click',handleDelete);
+  htmlElement.querySelector('.element__button').addEventListener('click',handleLike);
+
   elements.prepend(htmlElement);
 }
+
+function handleDelete(event){
+  const card = event.target.closest('.element');
+  card.remove();
+}
+ function handleLike(event){
+  const like = event.target.closest('.element__button');
+  like.classList.toggle('element__button-active');
+ }
