@@ -101,3 +101,18 @@ function handleDelete(event){
   const like = event.target.closest('.element__button');
   like.classList.toggle('element__button-active');
  }
+
+ /***добавить карточку***/
+ const ImgPopupForm = document.querySelector('.popup__form_img');
+
+ function addCard(item){
+  const card = itemTemplate.cloneNode(true);
+
+  elements.prepend(card);
+}
+
+ImgPopupForm.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  addCard();
+  closePopup(popupBox);
+ })
