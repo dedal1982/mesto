@@ -1,40 +1,11 @@
-/***массив***/
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const buttonPopupOpen = document.querySelector('.profile__popup');
-const popupBox = document.querySelector('.popup');
-const buttonPopupClose = document.querySelector('.popup__close');
+const popupProfileBox = document.querySelector('.popup_profile');
+const buttonPopupProfileClose = document.querySelector('.popup__close_profile');
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
-const popupForm = document.querySelector('.popup__form');
+const popupForm = document.querySelector('.popup__form_profile');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-
 
 /*открыть  popup*/
 function openPopup(popup){
@@ -45,44 +16,44 @@ function openPopup(popup){
   popup.classList.remove('popup_opened');
  }
 
- buttonPopupClose.addEventListener('click',() =>{
-  closePopup(popupBox);
+ buttonPopupProfileClose.addEventListener('click',() =>{
+  closePopup(popupProfileBox);
  });
 
  popupForm.addEventListener('submit',(event)=>{
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopup(popupBox);
+  closePopup(popupProfileBox);
  })
 
  buttonPopupOpen.addEventListener('click', () =>{
-  openPopup(popupBox);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+  openPopup(popupProfileBox);
+  nameInput.value = '';
+  jobInput.value = '';
 })
 
-const addButton = document.querySelector('.profile__button-plus');
-const addBox = document.querySelector('.popup_img');
-const closeBox = document.querySelector('.popup__close_img');
+const buttonAdd = document.querySelector('.profile__button-plus');
+const boxAddImg = document.querySelector('.popup_img');
+const boxCloseImg = document.querySelector('.popup__close_img');
 
-closeBox.addEventListener('click',() =>{
-  closePopup(addBox);
+boxCloseImg.addEventListener('click',() =>{
+  closePopup(boxAddImg);
  });
 
- const addNameInput = document.querySelector('.popup__input_type_text');
- const addLinkInput = document.querySelector('.popup__input_type_link');
+ const nameInputAdd = document.querySelector('.popup__input_type_text');
+ const linkInputAdd = document.querySelector('.popup__input_type_link');
 
-addButton.addEventListener('click', () =>{
-  openPopup(addBox);
-  addNameInput.value = '';
-  addLinkInput.value = '';
+ buttonAdd.addEventListener('click', () =>{
+  openPopup(boxAddImg);
+  nameInputAdd.value = '';
+  linkInputAdd.value = '';
 })
 
 const itemTemplate = document.querySelector('.template').content;
 const elements = document.querySelector('.elements');
-const openFullScreen = document.querySelector('.popup-fullScreen');
-const closeFullScreen = document.querySelector('.popup-fullScreen__close');
+const popupFullScreen = document.querySelector('.popup-fullScreen');
+const popupFullScreenClose = document.querySelector('.popup-fullScreen__close');
 
 function handleDelete(event){
   const card = event.target.closest('.element');
@@ -94,49 +65,53 @@ function handleDelete(event){
   like.classList.toggle('element__button-active');
  }
 
+ const elementFullScreenImg = document.querySelector('.popup-fullScreen__img');
+ const elementFullScreenCaption = document.querySelector('.popup-fullScreen__caption');
+
  function addFullScreenContent(event){
-  const foo = event.target.closest('.element__img');
-  openPopup(openFullScreen);
-  document.querySelector('.popup-fullScreen__img').src = foo.src;
-  document.querySelector('.popup-fullScreen__img').alt = foo.alt;
-  document.querySelector('.popup-fullScreen__caption').textContent = foo.alt;
+  const elementImg = event.target.closest('.element__img');
+  openPopup(popupFullScreen);
+  elementFullScreenImg.src = elementImg.src;
+  elementFullScreenImg.alt = elementImg.alt;
+  elementFullScreenCaption.textContent = elementImg.alt;
 }
 
-function setEventListeners(goto){
-  goto.querySelector('.element__button-trash').addEventListener('click', handleDelete);
-  goto.querySelector('.element__button').addEventListener('click',handleLike);
-  goto.querySelector('.element__img').addEventListener('click', addFullScreenContent);
+function setEventListeners(htmlElement){
+  htmlElement.querySelector('.element__button-trash').addEventListener('click', handleDelete);
+  htmlElement.querySelector('.element__button').addEventListener('click',handleLike);
+  htmlElement.querySelector('.element__img').addEventListener('click', addFullScreenContent);
 }
-
-function renderItem(item){
+/***создать карточку***/
+function createCard(item) {
   const htmlElement = itemTemplate.cloneNode(true);
-  htmlElement.querySelector('.element__img').src = item.link;
-  htmlElement.querySelector('.element__img').alt = item.name;
-  htmlElement.querySelector('.element__name').textContent = item.name;
+  const imageName = htmlElement.querySelector('.element__img');
+  const imageAlt = htmlElement.querySelector('.element__img');
+  const imageText = htmlElement.querySelector('.element__name');
+  imageName.src = item.link;
+  imageAlt.alt = item.name;
+  imageText.textContent = item.name;
   setEventListeners(htmlElement);
-  elements.prepend(htmlElement);
-}
+  return htmlElement;
+};
 
-initialCards.forEach(renderItem);
+initialCards.forEach(function (item) {
+  const elementCreate = createCard(item);
+  elements.prepend(elementCreate);
+});
 
  /***добавить карточку***/
- const ImgPopupForm = document.querySelector('.popup__form_img');
+ const popupFormImg = document.querySelector('.popup__form_img');
 
- function addCard(){
-  const card = itemTemplate.cloneNode(true);
-  card.querySelector('.element__name').textContent = addNameInput.value;
-  card.querySelector('.element__img').src = addLinkInput.value;
-  card.querySelector('.element__img').alt = addNameInput.value;
-  setEventListeners(card);
-  elements.prepend(card);
-}
-
-ImgPopupForm.addEventListener('submit',(event)=>{
+popupFormImg.addEventListener('submit',(event)=>{
   event.preventDefault();
-  addCard();
-  closePopup(addBox);
+  const elementAddNew = {
+    name: nameInputAdd.value,
+    link: linkInputAdd.value
+  };
+  elements.prepend(createCard(elementAddNew));
+  closePopup(boxAddImg);
  })
 
-closeFullScreen.addEventListener('click',() =>{
-  closePopup(openFullScreen);
+ popupFullScreenClose.addEventListener('click',() =>{
+  closePopup(popupFullScreen);
  })
