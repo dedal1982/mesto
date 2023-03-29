@@ -70,6 +70,9 @@ closeBox.addEventListener('click',() =>{
   closePopup(addBox);
  });
 
+ const addNameInput = document.querySelector('.popup__input_img_type_name');
+ const addLinkInput = document.querySelector('.popup__input_type_link');
+
 addButton.addEventListener('click', () =>{
   openPopup(addBox);
   addNameInput.value = '';
@@ -78,8 +81,32 @@ addButton.addEventListener('click', () =>{
 
 const itemTemplate = document.querySelector('.template').content;
 const elements = document.querySelector('.elements');
+const openFullScreen = document.querySelector('.popup-fullScreen');
+const closeFullScreen = document.querySelector('.popup-fullScreen__close');
 
-initialCards.forEach(renderItem);
+function handleDelete(event){
+  const card = event.target.closest('.element');
+  card.remove();
+}
+
+ function handleLike(event){
+  const like = event.target.closest('.element__button');
+  like.classList.toggle('element__button-active');
+ }
+
+ function addFullScreenContent(event){
+  const foo = event.target.closest('.element__img');
+  openPopup(openFullScreen);
+  document.querySelector('.popup-fullScreen__img').src = foo.src;
+  document.querySelector('.popup-fullScreen__img').alt = foo.alt;
+  document.querySelector('.popup-fullScreen__caption').textContent = foo.alt;
+}
+
+function setEventListeners(goto){
+  goto.querySelector('.element__button-trash').addEventListener('click', handleDelete);
+  goto.querySelector('.element__button').addEventListener('click',handleLike);
+  goto.querySelector('.element__img').addEventListener('click', addFullScreenContent);
+}
 
 function renderItem(item){
   const htmlElement = itemTemplate.cloneNode(true);
@@ -90,14 +117,7 @@ function renderItem(item){
   elements.prepend(htmlElement);
 }
 
-function handleDelete(event){
-  const card = event.target.closest('.element');
-  card.remove();
-}
- function handleLike(event){
-  const like = event.target.closest('.element__button');
-  like.classList.toggle('element__button-active');
- }
+initialCards.forEach(renderItem);
 
  /***добавить карточку***/
  const ImgPopupForm = document.querySelector('.popup__form_img');
@@ -111,32 +131,11 @@ function handleDelete(event){
   elements.prepend(card);
 }
 
-const addNameInput = document.querySelector('.popup__input_img_type_name');
-const addLinkInput = document.querySelector('.popup__input_type_link');
-
 ImgPopupForm.addEventListener('submit',(event)=>{
   event.preventDefault();
   addCard();
   closePopup(addBox);
  })
-
- /***popup-fullScreen***/
-const openFullScreen = document.querySelector('.popup-fullScreen');
-const closeFullScreen = document.querySelector('.popup-fullScreen__close');
-
-function setEventListeners(goto){
-  goto.querySelector('.element__button-trash').addEventListener('click', handleDelete);
-  goto.querySelector('.element__button').addEventListener('click',handleLike);
-  goto.querySelector('.element__img').addEventListener('click', addFullScreenContent);
-}
-
-function addFullScreenContent(event){
-  const foo = event.target.closest('.element__img');
-  openPopup(openFullScreen);
-  document.querySelector('.popup-fullScreen__img').src = foo.src;
-  document.querySelector('.popup-fullScreen__img').alt = foo.alt;
-  document.querySelector('.popup-fullScreen__caption').textContent = foo.alt;
-}
 
 closeFullScreen.addEventListener('click',() =>{
   closePopup(openFullScreen);
