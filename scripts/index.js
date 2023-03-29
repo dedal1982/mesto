@@ -70,7 +70,7 @@ closeBox.addEventListener('click',() =>{
   closePopup(addBox);
  });
 
- const addNameInput = document.querySelector('.popup__input_img_type_name');
+ const addNameInput = document.querySelector('.popup__input_type_text');
  const addLinkInput = document.querySelector('.popup__input_type_link');
 
 addButton.addEventListener('click', () =>{
