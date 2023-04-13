@@ -30,7 +30,7 @@ profileForm.addEventListener('submit',(event)=>{
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  disabledSubmitButton(profileForm);
+  disabledSubmitButton(popupProfileBox);
   closePopup(popupProfileBox);
  })
 
@@ -111,7 +111,7 @@ imgAddForm.addEventListener('submit',(event)=>{
   };
   elements.prepend(createCard(elementAddNew));
   imgAddForm.reset();
-  disabledSubmitButton(imgAddForm);
+  disabledSubmitButton(popupAddImgBox);
   closePopup(popupAddImgBox);
  })
 
