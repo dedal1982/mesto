@@ -17,14 +17,11 @@ function openPopup(popup){
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEscape);
  }
- function disabledSubmitButton() {
-  const buttonsSubmit = document.querySelectorAll('.popup__submit');
-  buttonsSubmit.forEach((button) => {
-    button.classList.add('popup__submit_disabled');
-    button.setAttribute("disabled", true);
-  })
-};
-
+ function disabledSubmitButton(popup) {
+  const button = popup.querySelector(".popup__submit");
+  button.classList.add("popup__submit_disabled");
+  button.setAttribute("disabled", true);
+}
  profileCloseButton.addEventListener('click',() =>{
   closePopup(popupProfileBox);
  });
@@ -33,7 +30,7 @@ profileForm.addEventListener('submit',(event)=>{
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  disabledSubmitButton();
+  disabledSubmitButton(profileForm);
   closePopup(popupProfileBox);
  })
 
@@ -114,7 +111,7 @@ imgAddForm.addEventListener('submit',(event)=>{
   };
   elements.prepend(createCard(elementAddNew));
   imgAddForm.reset();
-  disabledSubmitButton();
+  disabledSubmitButton(imgAddForm);
   closePopup(popupAddImgBox);
  })
 
