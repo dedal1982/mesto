@@ -4,6 +4,9 @@ class Card{
   constructor(data,templateSelector) {
     this._data = data;
     this._templateSelector = templateSelector;
+    this._popupFull = document.querySelector('.popup-fullScreen')
+    this._popupImg = this._popupFull.querySelector('.popup-fullScreen__img');
+    this._popupCaption = this._popupFull.querySelector('.popup-fullScreen__caption');
   }
 
   _getCardTemplate() {
@@ -42,13 +45,10 @@ class Card{
   }
 
   _cardFullOpenImg = () =>{
-    const popupFull = document.querySelector('.popup-fullScreen')
-    openPopup(popupFull)
-    const popupImg = popupFull.querySelector('.popup-fullScreen__img');
-    const popupCaption = popupFull.querySelector('.popup-fullScreen__caption');
-    popupImg.src = this._elementCard.src;
-    popupImg.alt = this._elementCard.alt;
-    popupCaption.textContent = this._elementCard.alt;
+    openPopup(this._popupFull)
+    this._popupImg.src = this._elementCard.src;
+    this._popupImg.alt = this._elementCard.alt;
+    this._popupCaption.textContent = this._elementCard.alt;
   }
  }
 
