@@ -2,7 +2,7 @@
     width:32px;
     height: 32px;
     background: rgba(0,0,0,0);
-    background-image: url(../../../images/Close\ Icon.svg);
+    background-image: url(../../../images/popup-close.svg);
     background-size: 32px 32px;
     position: absolute;
     right: -40px;
