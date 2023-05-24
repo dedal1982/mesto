@@ -39,13 +39,16 @@ module.exports = {
       },
       {
         test: /\.(jpg|svg)$/,
-        type: 'asset/resource'
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[hash][ext]',
+        }
       },
       {
         test: /\.(woff2|woff)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[hash][wxt]',
+          filename: 'fonts/[hash][ext]',
         }
       }
     ],
