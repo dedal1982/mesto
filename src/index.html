@@ -13,13 +13,15 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img src="<%=require('./images/img-profile.jpg')%>" alt="аватарка" class="profile__avatar">
+          <button class="profile__edit-avatar">
+            <img src="#" alt="аватарка" class="profile__avatar">
+          </button>
           <div class="profile__item">
             <div class="profile__title">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button type="button" class="profile__popup"></button>
             </div>
-            <p class="profile__job">Исследователь океана</p>
+            <p class="profile__job"></p>
           </div>
           <button type="button" class="profile__button-plus"></button>
         </section>
@@ -29,6 +31,26 @@
       <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
+      <div class="popup popup_confirmation">
+        <div class="popup__container">
+          <button type="button" class="popup__close popup__close_confirmation"></button>
+          <h3 class="popup__title popup__title_type_confirmation">Вы уверены?</h3>
+          <form name="popup-form" class="popup__form">
+            <button type="submit" class="popup__submit popup__submit_type_confirmation">Да</button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup_avatar">
+        <div class="popup__container">
+          <button type="button" class="popup__close popup__close_avatar"></button>
+          <h3 class="popup__title popup__title_type_avatar">Обновить аватар</h3>
+          <form name="popupAvatar" class="popup__form popup__form_avatar" novalidate>
+            <input id="avatar-url" type="url" required placeholder="Ссылка на изображение" name="avatar" class="popup__input popup__input_type_edit-avatar-link">
+            <span class="popup__input-error" id="avatar-url-error"></span>
+            <button type="submit" class="popup__submit" disabled>Сохранить</button>
+          </form>
+        </div>
+      </div>
       <div class="popup popup_profile">
         <div class="popup__container">
           <button type="button" class="popup__close popup__close_profile"></button>
@@ -36,7 +58,7 @@
           <form name="popupText" class="popup__form popup__form_profile" novalidate>
             <input id="input-name" type="text" required placeholder="Имя" minlength="2" maxlength="40" name="name" class="popup__input popup__input_type_name">
             <span class="popup__input-error" id="input-name-error"></span>
-            <input id="input-job" type="text" required placeholder="О себе" minlength="2" maxlength="200" name="job" class="popup__input popup__input_type_job">
+            <input id="input-job" type="text" required placeholder="О себе" minlength="2" maxlength="200" name="about" class="popup__input popup__input_type_job">
             <span class="popup__input-error" id="input-job-error"></span>
             <button type="submit" class="popup__submit" disabled>Сохранить</button>
           </form>
@@ -68,7 +90,10 @@
         <img class="element__img">
         <div class="element__item">
           <h2 class="element__name"></h2>
-          <button type="button" class="element__button"></button>
+          <div class="element__likes-info">
+            <button type="button" class="element__button"></button>
+            <p class="element__counter-likes">0</p>
+          </div>
         </div>
         <button type="button" class="element__button-trash"></button>
       </div>

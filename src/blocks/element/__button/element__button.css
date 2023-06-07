@@ -1,15 +1,15 @@
 .element__button{
-    width: 22px;
-    height: 19px;
-    margin: 4.5px 5px 0 auto;
-    border: none;
-    background-image: url(../../../images/like.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.3s linear;
+  min-width: 22px;
+  height: 19px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  transition: opacity 0.3s linear;
+  background-image: url(../../../images/like.svg);
+  background-size: 100%;
+  background-position: center;
 }
 .element__button-active{
   background-image: url(../../../images/like-active.svg);
