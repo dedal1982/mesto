@@ -16,19 +16,24 @@
 .elements{display:grid;gap:20px 17px;grid-template-columns:repeat(3,minmax(auto,282px));margin:51px auto 0;max-width:880px;width:100%}@media screen and (max-width:896px){.elements{grid-template-columns:repeat(2,minmax(auto,282px));max-width:579px}}@media screen and (max-width:599px){.elements{grid-template-columns:minmax(auto,282px);margin:36px auto 0;max-width:282px}}
 .element{background-color:#fff;border-radius:10px;max-width:282px;position:relative}
 .element__img{border-radius:10px 10px 0 0;cursor:pointer;display:block;height:282px;width:282px}
-.element__item{display:flex;margin:25px 15px 25px 21px;max-width:246px}
-.element__name{color:#000;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0;max-width:85%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.element__button{background-color:transparent;background-image:url(images/07e7c3388a485b920c3e.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;height:19px;margin:4.5px 5px 0 auto;opacity:1;transition:opacity .3s linear;width:22px}.element__button-active{background-image:url(images/c7e4902e78950c5d4fa1.svg);opacity:1}.element__button:hover{opacity:.5}
+.element__item{align-items:center;display:flex;justify-content:space-between;margin:21px 15px 21px 21px}
+.element__name{display:inline-block;font-size:24px;font-weight:900;line-height:29px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.element__button{background-color:#fff;background-image:url(images/07e7c3388a485b920c3e.svg);background-position:50%;background-size:100%;border:none;cursor:pointer;height:19px;margin:0;min-width:22px;padding:0;transition:opacity .3s linear}.element__button-active{background-image:url(images/c7e4902e78950c5d4fa1.svg);opacity:1}.element__button:hover{opacity:.5}
 .element__button-trash{background:transparent;background-image:url(images/43dde1e65726e883abd7.svg);background-position:50%;background-size:contain;border:0;cursor:pointer;height:19px;opacity:1;position:absolute;right:20px;top:20px;transition:opacity .3s linear;width:18px}.element__button-trash:hover{opacity:.6}
+.element__likes-info{display:flex;flex-direction:column;margin-right:6px}
+.element__counter-likes{font-size:13px;margin:3px auto 0}
 .footer{display:flex;margin:67px auto 60px;max-width:880px}@media screen and (max-width:880px){.footer{max-width:579px}}@media screen and (max-width:599px){.footer{line-height:17px;margin:48px auto 36px;max-width:282px}}
 .footer__copyright{color:#545454;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:0;max-width:318px}@media screen and (max-width:599px){.footer__copyright{font-size:14px}}
 .popup{align-items:center;background:rgba(0,0,0,.5);bottom:0;display:flex;justify-content:center;left:0;opacity:0;position:fixed;right:0;top:0;transition:visibility .5s,opacity .5s linear;visibility:hidden;z-index:999}
 .popup__container{background:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;padding:34px 36px 37px;position:relative;width:430px}@media screen and (max-width:599px){.popup__container{padding:25px 22px;width:282px}}
 .popup__close{background:transparent;background-image:url(images/ec56f2e806c2d5f2e13c.svg);background-size:32px 32px;border:0;cursor:pointer;height:32px;opacity:1;position:absolute;right:-40px;top:-40px;transition:opacity .3s linear;width:32px}.popup__close:hover{opacity:.6}@media screen and (max-width:599px){.popup__close{background-size:20px 20px;height:20px;right:0;top:-36px;width:20px}}
 .popup__title{color:#000;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0;max-width:330px;padding-bottom:48px;width:100%}@media screen and (max-width:599px){.popup__title{font-size:18px;line-height:22px;padding-bottom:75px}}
+.popup__title_type_avatar{padding-bottom:18px}
+.popup__title_type_confirmation{padding-bottom:0}
 .popup__form{display:flex;flex-direction:column}
 .popup__input{border:0;border-bottom:1px solid rgba(54,54,54,.2);color:#000;font-size:14px;font-style:normal;font-weight:400;line-height:17px;outline:none;padding:0 0 9px}.popup__input:last-of-type{margin-top:30px}
 .popup__submit{background:#000;border:0;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-style:normal;font-weight:400;height:50px;line-height:22px;margin-top:48px;opacity:1;text-align:center;transition:opacity .3s linear;width:358px}.popup__submit:hover{opacity:.8}@media screen and (max-width:599px){.popup__submit{font-size:14px;height:46px;line-height:17px;margin-top:45px;width:238px}}
+.popup__submit_type_confirmation{margin-top:32px}
 .popup_opened{opacity:1;visibility:visible}
 .popup-fullScreen{background-color:rgba(0,0,0,.9);padding:123px 19px}
 .popup-fullScreen__container{align-items:center;display:flex;flex-direction:column;justify-content:center;position:relative}
