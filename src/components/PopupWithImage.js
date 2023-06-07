@@ -5,13 +5,12 @@ export default class PopupWithImage extends Popup {
     super(popupElement);
     this._title = this._popup.querySelector('.popup-fullScreen__caption');
     this._image = this._popup.querySelector('.popup-fullScreen__img');
-    this._alt = this._image;
   }
 
-  open(name, link, alt) {
+  open(name, link) {
     super.open();
     this._title.textContent = name;
     this._image.src = link;
-    this._alt.alt = alt;
+    this._image.alt = name;
   }
 }

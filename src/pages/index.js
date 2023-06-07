@@ -119,6 +119,7 @@ const popupProfileForm = new PopupWithForm(popupProfileBox, {
 		api.setUserData(data)
 			.then((res) => {
 				userInfo.setUserInfo(res);
+        popupProfileForm.close();
 			})
 			.catch((err) => {
 				console.log(`setDataUser - ошибка: ${err}`);
@@ -170,6 +171,7 @@ const popupAddForm = new PopupWithForm(popupAddImgBox, {
 		api.addNewPhotocard(data.nameImg,data.linkImg)
 			.then((res) => {
 				cardsContainer.newAddItem(createCard(res));
+        popupAddForm.close();
 		})
 		.catch((err) => {
 			console.log(`addNewCard - ошибка: ${err}`);
