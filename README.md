@@ -23,7 +23,7 @@
 ---
 
 # 
-# (https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) (https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+# ![Figma]
 ---
 
 ### Автор:
