@@ -2,6 +2,7 @@
 ---
 
 **сайт адаптирован под мобильные устройства**
+# ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 Инструменты и стек: #HTML #CSS #JS #Webpack #GitHubPages #API
 ### сверстана интерактивная страница;
 ### удаление фотографий и лайки к ним с помощью JavaScript;
