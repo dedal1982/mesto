@@ -2,13 +2,13 @@
 ---
 
 **сайт адаптирован под мобильные устройства**
-Инструменты и стек:
-#HTML
-#CSS 
-#![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-#![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) 
-#GitHubPages 
-#API
+# Инструменты и стек:
+# HTML
+# CSS 
+# ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+# ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) 
+# GitHubPages 
+# API
 ### сверстана интерактивная страница;
 ### удаление фотографий и лайки к ним с помощью JavaScript;
 ### разработана валидация всех форм и улучшен UX при работе с всплывающими окнами;
