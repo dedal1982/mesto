@@ -1,5 +1,5 @@
 # Проектная работа №4: Mesto (от Яндекс Практикум)
-![alt text](https://github.com/dedal1982/mesto/blob/main/src/images/read.png
+![alt text](https://github.com/dedal1982/mesto/blob/main/src/images/read.png)
 ---
 
 **сайт адаптирован под мобильные устройства**
