@@ -1,14 +1,14 @@
 # Проектная работа №4: Mesto (от Яндекс Практикум)
-![](https://disk.yandex.ru/i/uPboziaNLnVipQ)
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 ---
 
 **сайт адаптирован под мобильные устройства**
 # Инструменты и стек:
 # HTML
-# CSS 
+# CSS
 # ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-# ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) 
-# GitHubPages 
+# ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+# GitHubPages
 # API
 ### сверстана интерактивная страница;
 ### удаление фотографий и лайки к ним с помощью JavaScript;
@@ -23,7 +23,7 @@
 
 ---
 
-# 
+#
 # ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 ---
 
